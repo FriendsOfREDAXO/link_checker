@@ -1,52 +1,20 @@
-# link_checker - Dieses Repository kopieren, anpassen, AddOn-Entwicklung für REDAXO starten
+# Link Checker für REDAXO
 
-Vorlage für REDAXO-Addons für einen schnelleren Start bei der Addon-Entwicklung.
+Dieses Addon prüft in regelmäßigen Abständen, welche Hyperlinks auf der REDAXO-Seite in Anker-Tags verwendet werden und ob diese noch gültig / erreichbar sind, oder verwaist / fehlerhaft sind.
 
-1. https://github.com/alexplusde/link_checker/archive/refs/heads/main.zip ZIP der aktuellen Vorlage herunterladen oder direkt in GitHub ein Repo auf Basis von `alexplusde/link_checker` erstellen: https://github.com/new/import und dort `https://github.com/alexplusde/link_checker.git` angeben.
-2. Mit "Suchen und Ersetzen" alles, was `link_checker` heißt, durch den Namen deines Addons ersetzen, z.B. `supi-dupi-kalender`, und speichern. Sowohl Dateinamen, als auch Dateiinhalte. 
-3. Alles löschen, was du aktuell nicht brauchst (oder für später auskommentiert lassen)
+> **Hinweis:** Dieses Addon ist derzeit noch in der Entwicklung. Die weitere Entwicklung benötigt jedoch finanzielle Förderung. Wenn du dieses Addon hilfreich findest, beteilige dich an der Entwicklung - entweder finanziell oder mit der Umsetzung von Features.
 
 ## Features
 
-### `package.yml`
+Aktuell wird beim Installieren des Addons die `sitemap.xml` aller in YRewrite eingetragenen Domains durchsucht. Anschließend wird, solange man im Backend eingeloggt ist, regelmäßig ein API-Call an deine Website `www.example.org/?rex-api-call=link_checker` ausgeführt und dabei einer der bisher ungeprüften oder zuletzt geprüften Links aufgerufen.
 
-Bei Bedarf Abhängigkeiten von REDAXO-AddOns (sog. packages) eintragen, Backend-Seiten aus oder einblenden, vordefinierte Konfigurationswerte setzen.
+### `?rex-api-call=link_checker`
 
-### `boot.php`
+Prüft automatisch den nächsten ungeprüften Link bzw. einen Link, der schon lange nicht mehr geprüft wurde.
 
-Gängige Code-Beispiele wie der Syntax zum Überprüfen einer Addon-Installation, der Unterscheidung zwischen Front- und Backend, dem Registrieren eigener YForm-Dataset-Klasen.
+### `?rex-api-call=link_checker&url=https://www.example.org/foo`
 
-### `install.php`
-
-Gängige Code-Beispiele zum Installieren von YForm-Tablesets, Meta-Infofeldern und dem Verwenden von Extension Points, Cronjobs u.a.
-
-### `dataedit.php` für YForm-Datentabellen
-
-Dein Addon nutzt YForm als Ausgangsbasis? Nutze YForm-Tabellen innerhalb deiner Addon-Seiten via https://friendsofredaxo.github.io/tricks/addons/yform/im-addon
-
-### `update.php`
-
-Gängige Code-Beispiele, die in Abhängigkeit der Vorgänger-Version deines Addons ausgeführt werden.
-
-### `uninstall.php`
-
-Alle Code-Beispiele, die du in der `install.php` nutzt, können hier wieder rückkgängig gemacht werden.
-
-### `lang/`
-
-link_checker für deine eigene Sprachdatei. Beginne die Addon-Entwicklung direkt so, dass weitere Sprachen ohne Anpassungen ergänzt werden können.
-
-### `fragmente/`
-
-link_checker für die Nutzung eigener Fragmente.
-
-### Docs-Seite
-
-Passe diese README.md-Datei an und spiele sie als Hilfe-Seite zu deinem Addon aus. Halte dich an die Struktur dieser README.md-Datei für deine eigenen Addons, indem du die wichtigsten Funktionen, Klassen und Methoden sowie den Installationsprozess und die Funktionsweise erklärst. Mit Verweis auf die Autoren, Projekt-Lead und Credits.
-
-### Einstellungs-Seite
-
-Beginne mit einem Konfigurations-Formular, das bereits best practice in REDAXO umsetzt - mit Links zu den wichtigsten API-Docs.
+Nimmt die Seite `https://www.example.org/foo` in den Index der zu prüfenden Seiten auf.
 
 ## Lizenz
 
