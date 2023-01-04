@@ -28,73 +28,49 @@ class link_checker extends \rex_yform_manager_dataset
         return self::query()->orderBy("lastcheckeddate", "ASC")->findOne();
     }
 
-    public static function indexUrl($url)
+
+    public static function getSitemapAsJson($domain)
     {
-        try {
-            $socket = rex_socket::factoryUrl($url);
-            $response = $socket->doGet();
-            
-            $doc = new DOMDocument();
-            @$doc->loadHTML($response->getBody());
-            $xpath = new DOMXpath($doc);
-
-            $nodes = $xpath->query('//a');
-
-            $protocol = explode("/", $url)[0];
-            $server = explode("/", $url)[2];
-
-            foreach ($nodes as $node) {
-                if ($node->getAttribute('href') == "") {
-                    continue;
-                }
-                if (str_starts_with($node->getAttribute('href'), "tel:")) {
-                    continue;
-                }
-                if (str_starts_with($node->getAttribute('href'), "mailto:")) {
-                    continue;
-                }
-                if (str_starts_with($node->getAttribute('href'), "skype:")) {
-                    continue;
-                }
-                if (str_starts_with($node->getAttribute('href'), "#")) {
-                    continue;
-                }
-                if (str_starts_with($node->getAttribute('href'), "http")) {
-                    $href = $node->getAttribute('href');
-                } else {
-                    $href = $protocol . "//" . $server . $node->getAttribute('href');
-                }
-
-                $link = self::getByUrl($href);
-
-                if (!$link) {
-                    $link = self::create();
-                }
-                $link->setValue('url', $href);
-                $link->setValue('lastseendate', date('Y-m-d H:i:s'));
-                $link->save();
-            }
-        } catch(rex_socket_exception $e) {
-            return $e->getMessage();
+        $sitemap = @simplexml_load_file($domain . "sitemap.xml");
+        if ($sitemap) {
+            return json_decode(json_encode($sitemap), true);
         }
-        return;
     }
-    
 
-    public function checkUrl()
+    public static function getSitemaps()
     {
-        $this->setValue('updatedate', date('Y-m-d H:i:s'));
-        $this->save();
-        try {
-            $socket = rex_socket::factoryUrl($this->getUrl());
-            $response = $socket->doGet();
+        $domains = rex_yrewrite::getDomains();
 
-            $this->setValue('status_code', $response->getStatusCode());
-            $this->save();
-        } catch(rex_socket_exception $e) {
-            return $e->getMessage();
+        $sitemaps = [];
+        foreach ($domains as $domain) {
+            $sitemaps[$domain->getUrl()] = self::getSitemapAsJson($domain->getUrl());
+        }
+
+        return $sitemaps;
+    }
+
+    public static function populateBySitemap()
+    {
+        $sitemaps = self::getSitemaps();
+
+        foreach ($sitemaps as $sitemap) {
+            if ($sitemap && array_key_exists('url', $sitemap)) {
+                $count = count($sitemap['url']);
+                foreach ($sitemap['url'] as $url) {
+                    $source = self::getByUrl($url['loc']);
+
+                    if (!$source) {
+                        $source = self::create();
+                        $source->setValue('firstseendate', date('Y-m-d H:i:s'));
+                    }
+
+                    $source->setValue('url', $$url['loc']);
+                    $source->setValue('lastseendate', date('Y-m-d H:i:s'));
+                    $source->save();
+                }
+            }
         }
         
-        return "success";
+        return $urls;
     }
 }

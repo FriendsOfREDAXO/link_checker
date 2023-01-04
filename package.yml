@@ -10,36 +10,34 @@ requires:
     redaxo: ^5.13
     packages:
         yform: "^4"
+        yrewrite: ">1"
 
 page:
     title: translate:link_checker_title
-    prio: 100
-    icon: rex-icon fa-gear
+    icon: rex-icon fa-link
 
 pages:
     link_checker:
         title: translate:link_checker_title
-        icon: rex-icon fa-calendar
+        icon: rex-icon fa-link
         perm: link_checker[]
         subpages:
             links:
                 title: translate:link_checker_links
-                icon: rex-icon fa-gear
+                icon: rex-icon fa-link
                 perm: admin
             source:
                 title: translate:link_checker_source
-                icon: rex-icon fa-gear
-                perm: admin
-            settings:
-                title: translate:link_checker_settings
-                icon: rex-icon fa-gear
+                icon: rex-icon fa-file-text-o
                 perm: admin
             docs:
                 title: translate:link_checker_docs
                 subPath: README.md
                 icon: rex-icon fa-info-circle
-                itemclass: pull-right
                 perm: link_checker[docs]
-
+            settings:
+                title: translate:link_checker_settings
+                icon: rex-icon fa-gear
+                perm: admin
 default_config:
     field: 'Test'

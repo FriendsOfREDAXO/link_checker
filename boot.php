@@ -11,7 +11,6 @@ if (rex_addon::get('yform')->isAvailable() && !rex::isSafeMode()) {
     );
 }
 
-
 if (rex::isBackend()) {
     rex_view::addJsFile($this->getAssetsUrl('link_checker_background.js'));
 }
