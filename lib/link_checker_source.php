@@ -1,29 +1,21 @@
 <?php
 class link_checker extends \rex_yform_manager_dataset
 {
-    public function getName() :string
-    {
-        return $this->getValue('name');
-    }
     public function getLastSeenDate() :string
     {
         return $this->getValue('lastseendate');
     }
-    public function getUpdateDate() :string
+    public function getLastCheckedDate() :string
     {
-        return $this->getValue('updatedate');
+        return $this->getValue('lastcheckeddate');
+    }
+    public function getFirstSeenDate() :string
+    {
+        return $this->getValue('firstseendate');
     }
     public function getUrl() :string
     {
         return $this->getValue('url');
-    }
-    public function getStatusCode() :string
-    {
-        return $this->getValue('status_code');
-    }
-    public function getRedirectUrl() :string
-    {
-        return $this->getValue('finalurl');
     }
 
     public static function getByUrl($url)
@@ -33,7 +25,7 @@ class link_checker extends \rex_yform_manager_dataset
 
     public static function findNextCheckUrl()
     {
-        return self::query()->orderBy("updatedate", "ASC")->findOne();
+        return self::query()->orderBy("lastcheckeddate", "ASC")->findOne();
     }
 
     public static function indexUrl($url)

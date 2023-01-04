@@ -1,22 +1,20 @@
-link_checker_title = link_checker
+link_checker_title = Link Checker
+link_checker_links = Link Checker
 
-link_checker_table = link_checker
+link_checker_links = Links
+link_checker_source = Quelle
 link_checker_settings = Einstellungen
 link_checker_docs = Hilfe
 
+# YForm Tablelen-Übersetzung
 link_checker_url = URL
 link_checker_redirect_url = Finale URL
 link_checker_name = Titel
 link_checker_updatedate = Zuletzt überprüft
 link_checker_lastseendate = Zuletzt entdeckt
 link_checker_status_code = Status-Code
-# FriendsOfREDAXO-Addons können bei YTraduco zur Übersetzung eingereicht werden
 
 # Konfigurationsformulare
 link_checker_config = Einstellungen
 link_checker_config_mytextfield_label = Test-Feld
 link_checker_config_mytextfield_notice = Notiz, die etwas erklärt und bspw. einen Standardwert nennt. Hier: <code>Test</code>
-
-# YForm Tablelen-Übersetzung
-link_checker_table_name_label = Name
-link_checker_table_name_notice = Notiz, die etwas erklärt und auch einen Beispielwert nennen kann, z.B.: <code>Mein Name</code> 

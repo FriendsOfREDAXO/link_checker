@@ -23,14 +23,16 @@ pages:
         perm: link_checker[]
         subpages:
             links:
-                title: translate:link_checker_settings
+                title: translate:link_checker_links
                 icon: rex-icon fa-gear
-                itemclass: pull-right
+                perm: admin
+            source:
+                title: translate:link_checker_source
+                icon: rex-icon fa-gear
                 perm: admin
             settings:
                 title: translate:link_checker_settings
                 icon: rex-icon fa-gear
-                itemclass: pull-right
                 perm: admin
             docs:
                 title: translate:link_checker_docs
