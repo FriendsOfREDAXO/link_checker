@@ -1,9 +1,15 @@
 link_checker_title = link_checker
 
 link_checker_table = link_checker
-link_checker_settings Einstellungen
+link_checker_settings = Einstellungen
 link_checker_docs = Hilfe
 
+link_checker_url = URL
+link_checker_redirect_url = Finale URL
+link_checker_name = Titel
+link_checker_updatedate = Zuletzt überprüft
+link_checker_lastseendate = Zuletzt entdeckt
+link_checker_status_code = Status-Code
 # FriendsOfREDAXO-Addons können bei YTraduco zur Übersetzung eingereicht werden
 
 # Konfigurationsformulare

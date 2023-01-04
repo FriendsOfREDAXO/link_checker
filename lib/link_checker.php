@@ -19,9 +19,9 @@ class link_checker extends \rex_yform_manager_dataset
     }
     public function getStatusCode() :string
     {
-        return $this->getValue('statuscode');
+        return $this->getValue('status_code');
     }
-    public function getFinalUrl() :string
+    public function getRedirectUrl() :string
     {
         return $this->getValue('finalurl');
     }
