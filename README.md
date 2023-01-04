@@ -8,6 +8,8 @@ Dieses Addon prüft in regelmäßigen Abständen, welche Hyperlinks auf der REDA
 
 Aktuell wird beim Installieren des Addons die `sitemap.xml` aller in YRewrite eingetragenen Domains durchsucht. Anschließend wird, solange man im Backend eingeloggt ist, regelmäßig ein API-Call an deine Website `www.example.org/?rex-api-call=link_checker` ausgeführt und dabei einer der bisher ungeprüften oder zuletzt geprüften Links aufgerufen.
 
+![www redaxo local_redaxo_index php_page=link_checker_link_checker_links](https://user-images.githubusercontent.com/3855487/210610756-bebba194-3fb1-4d3c-b0f8-d0e67791efd1.png)
+
 ### `?rex-api-call=link_checker`
 
 Prüft automatisch den nächsten ungeprüften Link bzw. einen Link, der schon lange nicht mehr geprüft wurde.
