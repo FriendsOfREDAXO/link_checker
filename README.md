@@ -1,9 +1,9 @@
-# Blaupause - Dieses Repository kopieren, anpassen, AddOn-Entwicklung für REDAXO starten
+# link_checker - Dieses Repository kopieren, anpassen, AddOn-Entwicklung für REDAXO starten
 
 Vorlage für REDAXO-Addons für einen schnelleren Start bei der Addon-Entwicklung.
 
-1. https://github.com/alexplusde/blaupause/archive/refs/heads/main.zip ZIP der aktuellen Vorlage herunterladen oder direkt in GitHub ein Repo auf Basis von `alexplusde/blaupause` erstellen: https://github.com/new/import und dort `https://github.com/alexplusde/blaupause.git` angeben.
-2. Mit "Suchen und Ersetzen" alles, was `blaupause` heißt, durch den Namen deines Addons ersetzen, z.B. `supi-dupi-kalender`, und speichern. Sowohl Dateinamen, als auch Dateiinhalte. 
+1. https://github.com/alexplusde/link_checker/archive/refs/heads/main.zip ZIP der aktuellen Vorlage herunterladen oder direkt in GitHub ein Repo auf Basis von `alexplusde/link_checker` erstellen: https://github.com/new/import und dort `https://github.com/alexplusde/link_checker.git` angeben.
+2. Mit "Suchen und Ersetzen" alles, was `link_checker` heißt, durch den Namen deines Addons ersetzen, z.B. `supi-dupi-kalender`, und speichern. Sowohl Dateinamen, als auch Dateiinhalte. 
 3. Alles löschen, was du aktuell nicht brauchst (oder für später auskommentiert lassen)
 
 ## Features
@@ -34,11 +34,11 @@ Alle Code-Beispiele, die du in der `install.php` nutzt, können hier wieder rüc
 
 ### `lang/`
 
-Blaupause für deine eigene Sprachdatei. Beginne die Addon-Entwicklung direkt so, dass weitere Sprachen ohne Anpassungen ergänzt werden können.
+link_checker für deine eigene Sprachdatei. Beginne die Addon-Entwicklung direkt so, dass weitere Sprachen ohne Anpassungen ergänzt werden können.
 
 ### `fragmente/`
 
-Blaupause für die Nutzung eigener Fragmente.
+link_checker für die Nutzung eigener Fragmente.
 
 ### Docs-Seite
 
@@ -50,7 +50,7 @@ Beginne mit einem Konfigurations-Formular, das bereits best practice in REDAXO u
 
 ## Lizenz
 
-MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/blaupause/blob/master/LICENSE.md)  
+MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/link_checker/blob/master/LICENSE.md)  
 
 ## Autoren
 
