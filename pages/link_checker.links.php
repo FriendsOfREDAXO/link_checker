@@ -1,5 +1,10 @@
 <?php
 
+if (rex_config::get('link_checker', 'populated') == 0) {
+    link_checker_source::populateBySitemap();
+    rex_config::set('link_checker', 'populated', 1);
+}
+
 $yform = $this->getProperty('yform', []);
 $yform = $yform[\rex_be_controller::getCurrentPage()] ?? [];
 

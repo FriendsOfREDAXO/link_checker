@@ -1,5 +1,7 @@
 <?php
 
+// link_checker_source::populateBySitemap();
+
 $yform = $this->getProperty('yform', []);
 $yform = $yform[\rex_be_controller::getCurrentPage()] ?? [];
 

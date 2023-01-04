@@ -40,4 +40,4 @@ pages:
                 icon: rex-icon fa-gear
                 perm: admin
 default_config:
-    field: 'Test'
+    populated: 0

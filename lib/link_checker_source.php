@@ -1,5 +1,5 @@
 <?php
-class link_checker extends \rex_yform_manager_dataset
+class link_checker_source extends \rex_yform_manager_dataset
 {
     public function getLastSeenDate() :string
     {
@@ -26,6 +26,63 @@ class link_checker extends \rex_yform_manager_dataset
     public static function findNextCheckUrl()
     {
         return self::query()->orderBy("lastcheckeddate", "ASC")->findOne();
+    }
+
+    public function indexUrl()
+    {
+        $this->setValue('lastcheckeddate', date('Y-m-d H:i:s'));
+        $this->save();
+        try {
+            $socket = rex_socket::factoryUrl($this->getUrl());
+            $response = $socket->doGet();
+            
+            $doc = new DOMDocument();
+            @$doc->loadHTML($response->getBody());
+            $xpath = new DOMXpath($doc);
+
+            $nodes = $xpath->query('//a');
+
+            $protocol = explode("/", $this->getUrl())[0];
+            $server = explode("/", $this->getUrl())[2];
+
+            foreach ($nodes as $node) {
+                if ($node->getAttribute('href') == "") {
+                    continue;
+                }
+                if (str_starts_with($node->getAttribute('href'), "tel:")) {
+                    continue;
+                }
+                if (str_starts_with($node->getAttribute('href'), "mailto:")) {
+                    continue;
+                }
+                if (str_starts_with($node->getAttribute('href'), "skype:")) {
+                    continue;
+                }
+                if (str_starts_with($node->getAttribute('href'), "#")) {
+                    continue;
+                }
+                if (str_starts_with($node->getAttribute('href'), "file:")) {
+                    continue;
+                }
+                if (str_starts_with($node->getAttribute('href'), "http")) {
+                    $href = $node->getAttribute('href');
+                } else {
+                    $href = $protocol . "//" . $server . $node->getAttribute('href');
+                }
+
+                $link = link_checker::getByUrl($href);
+
+                if (!$link) {
+                    $link = link_checker::create();
+                    $link->setValue('url', $href);
+                }
+                $link->setValue('lastseendate', date('Y-m-d H:i:s'));
+                $link->save();
+            }
+        } catch(rex_socket_exception $e) {
+            return $e->getMessage();
+        }
+        return;
     }
 
 
@@ -55,7 +112,6 @@ class link_checker extends \rex_yform_manager_dataset
 
         foreach ($sitemaps as $sitemap) {
             if ($sitemap && array_key_exists('url', $sitemap)) {
-                $count = count($sitemap['url']);
                 foreach ($sitemap['url'] as $url) {
                     $source = self::getByUrl($url['loc']);
 
@@ -64,13 +120,13 @@ class link_checker extends \rex_yform_manager_dataset
                         $source->setValue('firstseendate', date('Y-m-d H:i:s'));
                     }
 
-                    $source->setValue('url', $$url['loc']);
+                    $source->setValue('url', $url['loc']);
                     $source->setValue('lastseendate', date('Y-m-d H:i:s'));
                     $source->save();
                 }
             }
         }
         
-        return $urls;
+        return;
     }
 }
