@@ -1,5 +1,5 @@
 package: link_checker
-version: '0.0.1-dev'
+version: '1.0.0-dev'
 author: 'Alexander Walther'
 supportpage: https://github.com/alexplusde/link_checker
 # load: late 
