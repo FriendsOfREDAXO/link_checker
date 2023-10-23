@@ -2,7 +2,7 @@
 #
 $addon = rex_addon::get('link_checker');
 
-$form = rex_config_form::factory($addon->name);
+$form = rex_config_form::factory($addon->getName());
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
