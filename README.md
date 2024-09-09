@@ -20,13 +20,15 @@ Nimmt die Seite `https://www.example.org/foo` in den Index der zu prüfenden Sei
 
 ## Lizenz
 
-MIT Lizenz, siehe [LICENSE](https://github.com/friendsofredaxo/link_checker/blob/master/LICENSE)  
+MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/link_checker/blob/master/LICENSE.md)  
 
 ## Autoren
 
-**Friends Of REDAXO**
-http://www.redaxo.org
-https://github.com/FriendsOfREDAXO
+**Alexander Walther**  
+http://www.alexplus.de  
+https://github.com/alexplusde  
 
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alexplusde)
+
+## Credits
