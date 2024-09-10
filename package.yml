@@ -1,7 +1,7 @@
 package: link_checker
 version: '1.0.0-dev'
-author: 'Alexander Walther'
-supportpage: https://github.com/alexplusde/link_checker
+author: 'Friends of REDAXO'
+supportpage: https://github.com/friendsofredaxo/link_checker
 # load: late 
 
 requires:

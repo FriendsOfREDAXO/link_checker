@@ -24,11 +24,17 @@ MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/link_checker/blob/m
 
 ## Autoren
 
-**Alexander Walther**  
-http://www.alexplus.de  
-https://github.com/alexplusde  
+**Friends Of REDAXO**
+<http://www.redaxo.org>
+<https://github.com/FriendsOfREDAXO>
 
 **Projekt-Lead**  
-[Alexander Walther](https://github.com/alexplusde)
+[Alexander Walther](https://github.com/alxndr-w)
 
 ## Credits
+
+Erste Version von...
+
+**alex+ Digitales Marketing / Alexander Walther**  
+<http://www.alexplus.de>
+<https://github.com/alexplusde>
