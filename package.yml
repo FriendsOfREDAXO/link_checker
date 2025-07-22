@@ -9,7 +9,7 @@ requires:
         version: '>7.3,<9'
     redaxo: ^5.13
     packages:
-        yform: "^4"
+        yform: ">4, <6"
         yrewrite: ">1"
 
 page:
