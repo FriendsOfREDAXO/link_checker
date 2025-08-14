@@ -20,7 +20,7 @@ Nimmt die Seite `https://www.example.org/foo` in den Index der zu prüfenden Sei
 
 ## Lizenz
 
-MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/link_checker/blob/master/LICENSE.md)  
+MIT Lizenz, siehe [LICENSE.md](https://github.com/FriendsOfREDAXO/link_checker/blob/master/LICENSE.md)  
 
 ## Autoren
 
@@ -35,6 +35,5 @@ MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/link_checker/blob/m
 
 Erste Version von...
 
-**alex+ Digitales Marketing / Alexander Walther**  
-<http://www.alexplus.de>
+**Alexander Walther**  
 <https://github.com/alexplusde>
